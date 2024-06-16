@@ -1,6 +1,6 @@
 {
-  "name": "@wavesurfer/react-rewbs",
-  "version": "1.0.6",
+  "name": "wavesurfer-react-rewbs",
+  "version": "1.0.6-robinf",
   "description": "React component and hook for wavesurfer.js",
   "homepage": "https://wavesurfer.xyz",
   "repository": {

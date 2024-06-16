@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import type WaveSurfer from 'wavesurfer.js'
+import type WaveSurfer from 'wavesurfer.js-rewbs'
+import Minimap from 'wavesurfer.js-rewbs/dist/plugins/minimap.js';
+import Timeline from 'wavesurfer.js-rewbs/dist/plugins/timeline.js';
 import WavesurferPlayer from '../dist/index.js'
+
 
 const audioUrls = ['./audio.wav', './stereo.mp3']
 
@@ -31,6 +34,10 @@ const App = () => {
     })
   }
 
+  const plugins = useMemo(() => {
+    return [Minimap.create({}), Timeline.create({})]
+  }, []);
+
   // Randomize the wave color
   const onColorChange = () => {
     //setWaveColor(randomColor) // slow -- re-render
@@ -43,7 +50,8 @@ const App = () => {
         height={100}
         waveColor={waveColor}
         url={audioUrls[urlIndex]}
-        onReady={(ws) => setWavesurfer(ws)}
+        plugins={plugins}
+        onReady={(ws : WaveSurfer) => setWavesurfer(ws)}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       />

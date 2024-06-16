@@ -14,7 +14,7 @@
  */
 
 import { useState, useMemo, useEffect, useRef, memo, type ReactElement, type RefObject } from 'react'
-import WaveSurfer, { type WaveSurferEvents, type WaveSurferOptions } from 'wavesurfer.js'
+import WaveSurfer, { type WaveSurferEvents, type WaveSurferOptions } from 'wavesurfer.js-rewbs'
 
 type WavesurferEventHandler<T extends unknown[]> = (wavesurfer: WaveSurfer, ...args: T) => void
 
